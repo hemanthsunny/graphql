@@ -1,0 +1,34 @@
+Graphql :
+
+Introspection (concept):
+Ref: https://graphql.org/learn/introspection/
+Code Example:
+{
+  __schema{
+    types{
+			name
+    }
+    queryType {
+      name
+    }
+
+  }
+  __type(name: "RootQueryType") {
+    name,
+    kind,
+    fields {
+      name
+      type {
+        name
+        kind
+        description
+      }
+      description
+      deprecationReason
+    }
+  }
+}
+
+** Fields can be a string or function
+1) Why we write a function for fields?
+Ans) Fields can be a object or function. If it is a object, the control will execute the object. If it is a function, then the control won't execute it until complete file reads.
